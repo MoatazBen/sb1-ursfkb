@@ -1,13 +1,7 @@
+
+# Create your models here.
 from django.db import models
-from django.utils import timezone
-
-class DHT11Reading(models.Model):
-    temperature = models.FloatField()
-    humidity = models.FloatField()
-    timestamp = models.DateTimeField(default=timezone.now)
-
-    class Meta:
-        ordering = ['-timestamp']
-
-    def __str__(self):
-        return f"Temp: {self.temperature}°C, Humidity: {self.humidity}% at {self.timestamp}"
+class Dht11(models.Model):
+  temp = models.FloatField(null=True)
+  hum = models.FloatField(null=True)
+  dt = models.DateTimeField(auto_now_add=True,null=True)
